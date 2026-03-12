@@ -7,6 +7,7 @@ Repository ini berisi kumpulan tugas dan proyek praktikum mata kuliah Pemrograma
 Setiap folder merepresentasikan satu pertemuan atau satu modul praktikum:
 
 - `praktikum-rn-1/`: Pertemuan 1 - Komponen Dasar, Props, State, & Events
+- `praktikum-p2/`: Pertemuan 2 - Layout (Flexbox) & Events Handling
 - *(Folder-folder pertemuan selanjutnya akan ditambahkan di sini)*
 
 ## Persyaratan
