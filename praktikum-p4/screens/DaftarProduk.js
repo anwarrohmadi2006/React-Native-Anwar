@@ -105,7 +105,7 @@ export default function DaftarProduk({ navigation }) {
         </View>
         <View style={styles.chipListWrap}>
           {KATEGORI.map((k) => (
-            <View key={k} style={[styles.skl, { height: 34, width: 80, borderRadius: 20 }]} />
+            <View key={k} style={[styles.skl, { height: 34, width: 80, borderRadius: 20, marginRight: 8 }]} />
           ))}
         </View>
         <View style={styles.gridWrap}>
@@ -190,10 +190,10 @@ const styles = StyleSheet.create({
   pageHeader:    { paddingHorizontal: 20, paddingTop: Platform.OS === 'android' ? 52 : 56, paddingBottom: 12 },
   pageTitle:     { fontSize: 24, fontWeight: '900', color: '#1E3A5F', letterSpacing: -0.4 },
   pageSub:       { fontSize: 13, color: '#6B7FA3', marginTop: 2 },
-  chipListWrap:  { flexDirection: 'row', gap: 8, paddingHorizontal: 16, marginBottom: 16 },
-  chipList:      { paddingHorizontal: 16, paddingBottom: 12, gap: 8, alignItems: 'center' },
-  chip:          { paddingHorizontal: 16, paddingVertical: 8, borderRadius: 20,
-                   backgroundColor: '#FFF', borderWidth: 1.5, borderColor: '#D1D9EE', alignSelf: 'flex-start' },
+  chipListWrap:  { flexDirection: 'row', paddingHorizontal: 16, marginBottom: 16 },
+  chipList:      { paddingHorizontal: 16, paddingBottom: 12, alignItems: 'center' },
+  chip:          { paddingHorizontal: 16, paddingVertical: 8, borderRadius: 20, marginRight: 8,
+                   backgroundColor: '#FFF', borderWidth: 1.5, borderColor: '#D1D9EE' },
   chipActive:    { backgroundColor: '#1E3A5F', borderColor: '#1E3A5F' },
   chipTeks:      { fontSize: 13, fontWeight: '600', color: '#4B5E80' },
   chipTeksActive:{ color: '#FFF' },
