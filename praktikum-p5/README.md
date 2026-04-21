@@ -1,49 +1,57 @@
-# Praktikum P5 - Form & Validasi (React Native Expo)
+# Praktikum P5: Form & Validasi (Expo SDK 55)
 
-Proyek ini adalah bagian dari mata kuliah Pemrograman Mobile Pertemuan 5 yang berfokus pada implementasi form, validasi input, keyboard handling, dan multi-step form menggunakan Expo SDK 54.
+Proyek ini adalah implementasi lengkap dari **Modul Praktikum P5 — Form & Validasi** untuk mata kuliah Pemrograman Mobile. Aplikasi ini mencakup berbagai teknik pengelolaan form, validasi data, manajemen keyboard, dan persistensi data menggunakan React Native dan Expo.
 
-## Fitur Utama
+## 🌟 Fitur Utama
 
-### 1. Form Registrasi dengan Validasi (Praktikum A)
-- **Controlled Components**: Semua field dikelola menggunakan satu objek state.
-- **Validasi Real-time & onBlur**: Pesan error muncul saat input kehilangan fokus atau saat disubmit.
-- **Keyboard Handling**: Menggunakan `KeyboardAvoidingView` dan fokus otomatis antar input menggunakan `useRef`.
-- **Indikator Kekuatan Password**: Penilaian visual berdasarkan panjang, huruf kapital, angka, dan karakter spesial.
+### 👨‍💻 Praktikum Utama
+*   **Praktikum A: Form Registrasi**: 
+    *   Validasi `onBlur` untuk Nama, Email, Password, dan No HP.
+    *   Manajemen focus menggunakan `useRef` (Keyboard Handling).
+    *   **Password Strength Indicator** visual dengan feedback warna (Lemah - Sangat Kuat).
+*   **Praktikum B: Form Login**:
+    *   Simulasi login autentikasi dengan delay 1.5 detik.
+    *   Fitur **Show/Hide Password**.
+    *   Dummy accounts: `admin@test.com` & `user@test.com`.
+*   **Praktikum C: Registrasi Berjenjang (Wizard)**:
+    *   Alur form 4 langkah (Data Diri, Akun, Kontak, Ringkasan).
+    *   Progress bar dinamis dan navigasi antar langkah bergaya Wizard.
 
-### 2. Form Login & Navigasi (Praktikum B)
-- **Simulasi Login**: Menggunakan akun dummy dengan delay loading 1.5 detik.
-- **Show/Hide Password**: Fitur toggle visibilitas password.
-- **Navigation Routing**: Berpindah ke halaman utama menggunakan `navigation.replace` setelah login berhasil.
+### 🏆 Latihan Mandiri (Lengkap)
+*   **Latihan 1: Data Diri Mahasiswa**: Form komprehensif (Nama, NIM, Prodi, Semester, dll) dengan fitur **Reset Form Confirmation**.
+*   **Latihan 2: Aplikasi Survei Mobile**: Form 5 langkah interaktif dengan **Rating Bintang**.
+*   **Latihan 3: Persistence (Bonus)**: Integrasi `@react-native-async-storage/async-storage` pada Aplikasi Survei untuk menyimpan data secara otomatis (Auto-save).
 
-### 3. Form Multi-Step Wizard (Praktikum C)
-- **Progress Bar**: Indikator langkah pendaftaran yang interaktif.
-- **Validasi Per Langkah**: Mencegah pengguna lanjut ke tahap berikutnya jika data belum valid.
-- **Halaman Ringkasan**: Langkah ke-4 menampilkan konfirmasi seluruh data sebelum submit final.
+## 🛠️ Detail Teknis
+*   **Framework**: Expo SDK 55 (Disesuaikan dengan runtime terbaru).
+*   **Navigation**: Nested Navigation (Drawer Navigator + Native Stack).
+*   **UI Components**: Custom reusable Input components dengan feedback error yang dinamis.
+*   **Persistence**: AsyncStorage untuk manajemen data luring.
 
-## Cara Menjalankan Proyek
+## 🚀 Cara Menjalankan
 
-1. **Pastikan Node.js dan Expo CLI terinstal.**
-2. **Clone atau salin proyek ini.**
-3. **Instal dependensi:**
-   ```bash
-   npm install
-   ```
-4. **Jalankan aplikasi:**
-   ```bash
-   npx expo start
-   ```
-5. **Scan QR Code menggunakan aplikasi Expo Go di Android/iOS.**
+1.  **Clone repositori ini**:
+    ```bash
+    git clone https://github.com/anwarrohmadi2006/React-Native-Anwar.git
+    cd React-Native-Anwar/praktikum-p5
+    ```
 
-## Struktur Folder
-- `screens/`: Berisi semua halaman (FormRegistrasi, FormLogin, FormWizard, Home).
-- `navigation/`: Konfigurasi AppNavigator menggunakan Drawer dan Stack Navigator.
-- `assets/`: File gambar dan ikon.
+2.  **Instal Dependensi**:
+    ```bash
+    npm install
+    ```
 
-## Detail Implementasi
-- **Expo SDK**: 54
-- **React Navigation**: Drawer & Native Stack
-- **Library Tambahan**: `react-native-gesture-handler`, `react-native-reanimated`.
+3.  **Jalankan Aplikasi**:
+    ```bash
+    npx expo start --android --clear
+    ```
+
+4.  **Akses Fitur**: Gunakan menu **Drawer (Sidebar)** untuk berpindah antar praktikum dan latihan mandiri.
+
+## 👤 Identitas Mahasiswa
+*   **Nama**: Anwar Rohmadi
+*   **Mata Kuliah**: Pemrograman Mobile
+*   **Platform**: Android (SDK 55)
 
 ---
-**Dikerjakan oleh:** [Nama Anda]
-**NIM:** [NIM Anda]
+*Dibuat untuk memenuhi Tugas Praktikum P5 Pemrograman Mobile.*
