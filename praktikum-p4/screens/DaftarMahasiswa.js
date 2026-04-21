@@ -1,6 +1,7 @@
 import { useState, useCallback, useRef } from 'react';
 import {
   FlatList,
+  ScrollView,
   View,
   Text,
   TextInput,
@@ -139,23 +140,25 @@ export default function DaftarMahasiswa({ navigation }) {
       </View>
 
       {/* Filter Chips */}
-      <FlatList
-        data={PRODIS}
-        keyExtractor={(i) => i}
-        horizontal
-        showsHorizontalScrollIndicator={false}
-        contentContainerStyle={styles.chipList}
-        renderItem={({ item }) => (
-          <TouchableOpacity
-            onPress={() => setProdi(item)}
-            style={[styles.chip, filterProdi === item && styles.chipActive]}
-          >
-            <Text style={[styles.chipTeks, filterProdi === item && styles.chipTeksActive]}>
-              {item}
-            </Text>
-          </TouchableOpacity>
-        )}
-      />
+      <View>
+        <ScrollView
+          horizontal
+          showsHorizontalScrollIndicator={false}
+          contentContainerStyle={styles.chipList}
+        >
+          {PRODIS.map((item) => (
+            <TouchableOpacity
+              key={item}
+              onPress={() => setProdi(item)}
+              style={[styles.chip, filterProdi === item && styles.chipActive]}
+            >
+              <Text style={[styles.chipTeks, filterProdi === item && styles.chipTeksActive]}>
+                {item}
+              </Text>
+            </TouchableOpacity>
+          ))}
+        </ScrollView>
+      </View>
 
       {/* Main FlatList */}
       <FlatList

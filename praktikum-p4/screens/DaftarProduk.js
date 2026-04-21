@@ -1,6 +1,6 @@
 import { useState, useEffect, useCallback } from 'react';
 import {
-  FlatList, View, Text, StyleSheet, ActivityIndicator,
+  FlatList, ScrollView, View, Text, StyleSheet, ActivityIndicator,
   TouchableOpacity, RefreshControl, Dimensions, Platform,
 } from 'react-native';
 
@@ -127,23 +127,25 @@ export default function DaftarProduk({ navigation }) {
       </View>
 
       {/* Kategori chips */}
-      <FlatList
-        data={KATEGORI}
-        keyExtractor={(item) => item}
-        horizontal
-        showsHorizontalScrollIndicator={false}
-        contentContainerStyle={styles.chipList}
-        renderItem={({ item }) => (
-          <TouchableOpacity
-            onPress={() => setKategori(item)}
-            style={[styles.chip, filterKategori === item && styles.chipActive]}
-          >
-            <Text style={[styles.chipTeks, filterKategori === item && styles.chipTeksActive]}>
-              {item}
-            </Text>
-          </TouchableOpacity>
-        )}
-      />
+      <View>
+        <ScrollView
+          horizontal
+          showsHorizontalScrollIndicator={false}
+          contentContainerStyle={styles.chipList}
+        >
+          {KATEGORI.map((item) => (
+            <TouchableOpacity
+              key={item}
+              onPress={() => setKategori(item)}
+              style={[styles.chip, filterKategori === item && styles.chipActive]}
+            >
+              <Text style={[styles.chipTeks, filterKategori === item && styles.chipTeksActive]}>
+                {item}
+              </Text>
+            </TouchableOpacity>
+          ))}
+        </ScrollView>
+      </View>
 
       {/* Grid produk */}
       <FlatList
