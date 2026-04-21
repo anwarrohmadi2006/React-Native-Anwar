@@ -1,9 +1,7 @@
 import React from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, ScrollView } from 'react-native';
 
-export default function HomeScreen({ route, navigation }) {
-  const { email } = route.params || { email: 'Admin' };
-
+export default function HomeScreen({ email, onLogout }) {
   return (
     <ScrollView contentContainerStyle={styles.container}>
       <View style={styles.header}>
@@ -40,7 +38,7 @@ export default function HomeScreen({ route, navigation }) {
 
       <TouchableOpacity 
         style={styles.button} 
-        onPress={() => navigation.replace('Login')}
+        onPress={onLogout}
       >
         <Text style={styles.buttonText}>Keluar / Logout</Text>
       </TouchableOpacity>

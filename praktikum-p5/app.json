@@ -3,7 +3,7 @@
     "name": "praktikum-p5",
     "slug": "praktikum-p5",
     "version": "1.0.0",
-    "newArchEnabled": false,
+    "newArchEnabled": true,
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",

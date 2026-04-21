@@ -1,57 +1,86 @@
-# Praktikum P5: Form & Validasi (Expo SDK 55)
+# 📱 Praktikum P5: React Native Form & Navigation Stabilization
 
-Proyek ini adalah implementasi lengkap dari **Modul Praktikum P5 — Form & Validasi** untuk mata kuliah Pemrograman Mobile. Aplikasi ini mencakup berbagai teknik pengelolaan form, validasi data, manajemen keyboard, dan persistensi data menggunakan React Native dan Expo.
-
-## 🌟 Fitur Utama
-
-### 👨‍💻 Praktikum Utama
-*   **Praktikum A: Form Registrasi**: 
-    *   Validasi `onBlur` untuk Nama, Email, Password, dan No HP.
-    *   Manajemen focus menggunakan `useRef` (Keyboard Handling).
-    *   **Password Strength Indicator** visual dengan feedback warna (Lemah - Sangat Kuat).
-*   **Praktikum B: Form Login**:
-    *   Simulasi login autentikasi dengan delay 1.5 detik.
-    *   Fitur **Show/Hide Password**.
-    *   Dummy accounts: `admin@test.com` & `user@test.com`.
-*   **Praktikum C: Registrasi Berjenjang (Wizard)**:
-    *   Alur form 4 langkah (Data Diri, Akun, Kontak, Ringkasan).
-    *   Progress bar dinamis dan navigasi antar langkah bergaya Wizard.
-
-### 🏆 Latihan Mandiri (Lengkap)
-*   **Latihan 1: Data Diri Mahasiswa**: Form komprehensif (Nama, NIM, Prodi, Semester, dll) dengan fitur **Reset Form Confirmation**.
-*   **Latihan 2: Aplikasi Survei Mobile**: Form 5 langkah interaktif dengan **Rating Bintang**.
-*   **Latihan 3: Persistence (Bonus)**: Integrasi `@react-native-async-storage/async-storage` pada Aplikasi Survei untuk menyimpan data secara otomatis (Auto-save).
-
-## 🛠️ Detail Teknis
-*   **Framework**: Expo SDK 55 (Disesuaikan dengan runtime terbaru).
-*   **Navigation**: Nested Navigation (Drawer Navigator + Native Stack).
-*   **UI Components**: Custom reusable Input components dengan feedback error yang dinamis.
-*   **Persistence**: AsyncStorage untuk manajemen data luring.
-
-## 🚀 Cara Menjalankan
-
-1.  **Clone repositori ini**:
-    ```bash
-    git clone https://github.com/anwarrohmadi2006/React-Native-Anwar.git
-    cd React-Native-Anwar/praktikum-p5
-    ```
-
-2.  **Instal Dependensi**:
-    ```bash
-    npm install
-    ```
-
-3.  **Jalankan Aplikasi**:
-    ```bash
-    npx expo start --android --clear
-    ```
-
-4.  **Akses Fitur**: Gunakan menu **Drawer (Sidebar)** untuk berpindah antar praktikum dan latihan mandiri.
-
-## 👤 Identitas Mahasiswa
-*   **Nama**: Anwar Rohmadi
-*   **Mata Kuliah**: Pemrograman Mobile
-*   **Platform**: Android (SDK 55)
+A professional React Native (Expo) application focusing on advanced form validation, multi-step registration wizards, and secure authentication flows. Optimized for **Expo SDK 55** and the **React Native New Architecture**.
 
 ---
-*Dibuat untuk memenuhi Tugas Praktikum P5 Pemrograman Mobile.*
+
+## 🚀 Key Features
+
+- **🛡️ Secure Auth Flow**: Conditional navigation that strictly hides administrative features (Hamburger/Drawer) until a valid login.
+- **⚡ Advanced Validation**: Real-time form validation with custom error messaging for Login, Registration, and Surveys.
+- **🪄 Registration Wizard**: A multi-step form experience (Wizard) for complex data entry.
+- **⚓ Navigation v7**: Utilizing the latest `@react-navigation` suite for seamless native transitions and React 19 compatibility.
+- **💎 Premium UI**: Modern aesthetics using consistent color palettes, high-quality assets, and optimized layouts for various screen sizes.
+
+---
+
+## 🛠️ Tech Stack & Environment
+
+| Component           | Version / Technology |
+|---------------------|----------------------|
+| **Core Framework**  | Expo SDK 55 (Latest) |
+| **Engine**          | React Native 0.83.4 |
+| **UI Library**      | React 19.2.0        |
+| **Architecture**    | New Architecture (Fabric) |
+| **Navigation**      | React Navigation v7 |
+| **Animations**      | Reanimated 4.2.1    |
+| **Worklets**        | NativeWorklets 0.7.2|
+
+---
+
+## 📥 Getting Started
+
+### 1. Prerequisites
+Ensure you have Node.js and the Expo Go app installed on your device/emulator.
+
+### 2. Installation
+```bash
+# Clone the repository
+git clone https://github.com/anwarrohmadi2006/React-Native-Anwar.git
+
+# Navigate to the project
+cd praktikum-p5
+
+# Install dependencies
+npm install
+```
+
+### 3. Running the App
+```bash
+# Start the Expo server (Clear cache recommended)
+npx expo start --clear
+
+# Run on Android
+Press 'a' in the terminal
+```
+
+---
+
+## 🔑 Dummy Accounts (Testing)
+
+Use the following credentials to bypass the Auth Stack and access the Main Application:
+
+| Email              | Password   | Role  |
+|--------------------|------------|-------|
+| `admin@test.com`   | `Admin123` | Admin |
+| `user@test.com`    | `User1234` | User  |
+
+---
+
+## 📂 Project Structure
+
+- `screens/`: Contains all UI screens (Login, Home, Wizard, etc.)
+- `navigation/`: Centralized navigation logic and Auth Flow management.
+- `assets/`: Optimized PNG assets for icons and splash screens.
+- `app.json`: Core configuration for Expo and the New Architecture.
+
+---
+
+## 🧑‍💻 Author
+**Anwar Rohmadi**  
+*Pemrograman Perangkat Bergerak - Praktikum Mobile Programming*
+
+---
+
+> [!NOTE]
+> This project has been stabilized to resolve historical `installTurboModule` and `NativeWorklets` conflicts found in earlier SDK versions. It is fully ready for deployment.

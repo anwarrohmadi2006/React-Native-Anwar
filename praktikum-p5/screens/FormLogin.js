@@ -9,7 +9,7 @@ const AKUN_DUMMY = [
   { email: 'user@test.com', password: 'User1234' },  
 ];
 
-export default function FormLogin({ navigation }) {
+export default function FormLogin({ navigation, onLogin }) {
   const [form, setForm] = useState({ email: '', password: '' });
   const [showPassword, setShowPassword] = useState(false);
   const [isLoading, setLoading] = useState(false);
@@ -40,8 +40,8 @@ export default function FormLogin({ navigation }) {
     );   
 
     if (akun) {   
-      // Berhasil login — navigasi ke halaman utama   
-      navigation.replace('MainApp', { email: form.email });   
+      // Panggil callback login dari Navigator
+      onLogin(form.email);   
     } else {   
       setErrors({ submit: 'Email atau password salah' });   
     }  
