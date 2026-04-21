@@ -23,7 +23,7 @@
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
       },
-      "package": "com.anwar.praktikum-p5"
+      "package": "com.anwar.praktikump5"
     },
     "web": {
       "favicon": "./assets/favicon.png"
