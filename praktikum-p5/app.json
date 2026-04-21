@@ -3,7 +3,6 @@
     "name": "praktikum-p5",
     "slug": "praktikum-p5",
     "version": "1.0.0",
-    "newArchEnabled": false,
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
@@ -23,7 +22,7 @@
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
       },
-      "package": "com.anwar.praktikum-p5"
+      "package": "com.anwar.praktikump5"
     },
     "web": {
       "favicon": "./assets/favicon.png"
