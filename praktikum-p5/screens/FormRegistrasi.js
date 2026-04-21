@@ -5,6 +5,26 @@ import {
   KeyboardAvoidingView, Platform 
 } from 'react-native'; 
 
+// Komponen InputField didefinisikan di luar agar tidak re-render/hilang fokus (Fix 4)
+const InputField = ({ label, field, value, onChangeText, onBlur, inputRef, nextRef, errors, touched, ...props }) => (
+  <View style={styles.fieldWrapper}>
+    <Text style={styles.label}>{label}</Text>
+    <TextInput
+      ref={inputRef}
+      style={[styles.input, errors?.[field] && touched?.[field] && styles.inputError]}
+      value={value}
+      onChangeText={onChangeText}
+      onBlur={onBlur}
+      onSubmitEditing={() => nextRef?.current?.focus()}
+      blurOnSubmit={!nextRef}
+      {...props}
+    />
+    {errors?.[field] && touched?.[field] && (
+      <Text style={styles.errorTeks}>{errors[field]}</Text>
+    )}
+  </View>
+);
+
 export default function FormRegistrasi() {   
   const [form, setForm] = useState({ 
     nama: '', email: '', password: '',  
@@ -93,25 +113,6 @@ export default function FormRegistrasi() {
   const labelKekuatan = ['', 'Lemah', 'Cukup', 'Kuat', 'Sangat Kuat'][kekuatan]; 
   const warnaKekuatan = ['', '#D32F2F', '#F57C00', '#388E3C', '#1B5E20'][kekuatan];
 
-  const InputField = ({ label, field, inputRef, nextRef, ...props }) => (   
-    <View style={styles.fieldWrapper}>   
-      <Text style={styles.label}>{label}</Text>   
-      <TextInput   
-        ref={inputRef}
-        style={[styles.input, errors[field] && touched[field] && styles.inputError]} 
-        value={form[field]}   
-        onChangeText={(val) => updateForm(field, val)}   
-        onBlur={() => handleBlur(field)}   
-        onSubmitEditing={() => nextRef?.current?.focus()}
-        blurOnSubmit={!nextRef}
-        {...props}   
-      />   
-      {errors[field] && touched[field] && (   
-        <Text style={styles.errorTeks}>{errors[field]}</Text>  
-      )} 
-    </View>   
-  ); 
-
   return (   
     <KeyboardAvoidingView 
       style={{ flex: 1 }} 
@@ -123,31 +124,46 @@ export default function FormRegistrasi() {
         <InputField 
           label='Nama Lengkap' 
           field='nama' 
+          value={form.nama}
+          onChangeText={(val) => updateForm('nama', val)}
+          onBlur={() => handleBlur('nama')}
+          errors={errors}
+          touched={touched}
           placeholder='Nama lengkap Anda' 
           autoCapitalize='words' 
           returnKeyType='next'
-          onSubmitEditing={() => refEmail.current.focus()}
+          nextRef={refEmail}
         /> 
 
         <InputField 
           inputRef={refEmail}
           label='Email' 
           field='email' 
+          value={form.email}
+          onChangeText={(val) => updateForm('email', val)}
+          onBlur={() => handleBlur('email')}
+          errors={errors}
+          touched={touched}
           placeholder='nama@email.com'  
           keyboardType='email-address' 
           autoCapitalize='none' 
           returnKeyType='next'
-          onSubmitEditing={() => refPassword.current.focus()}
+          nextRef={refPassword}
         /> 
 
         <InputField 
           inputRef={refPassword}
           label='Password' 
           field='password' 
+          value={form.password}
+          onChangeText={(val) => updateForm('password', val)}
+          onBlur={() => handleBlur('password')}
+          errors={errors}
+          touched={touched}
           placeholder='Min. 8 karakter, ada kapital & angka' 
           secureTextEntry 
           returnKeyType='next'
-          onSubmitEditing={() => refKonfirmasi.current.focus()}
+          nextRef={refKonfirmasi}
         />
 
         {/* Tampilan Kekuatan Password Step 5 */}
@@ -170,16 +186,26 @@ export default function FormRegistrasi() {
           inputRef={refKonfirmasi}
           label='Konfirmasi Password' 
           field='konfirmasi'  
+          value={form.konfirmasi}
+          onChangeText={(val) => updateForm('konfirmasi', val)}
+          onBlur={() => handleBlur('konfirmasi')}
+          errors={errors}
+          touched={touched}
           placeholder='Ulangi password' 
           secureTextEntry 
           returnKeyType='next'
-          onSubmitEditing={() => refNoHp.current.focus()}
+          nextRef={refNoHp}
         /> 
 
         <InputField 
           inputRef={refNoHp}
           label='Nomor HP' 
           field='noHp' 
+          value={form.noHp}
+          onChangeText={(val) => updateForm('noHp', val)}
+          onBlur={() => handleBlur('noHp')}
+          errors={errors}
+          touched={touched}
           placeholder='08xxxxxxxxxx'  
           keyboardType='phone-pad' 
           returnKeyType='done'

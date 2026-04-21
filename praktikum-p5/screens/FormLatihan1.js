@@ -5,6 +5,22 @@ import {
   KeyboardAvoidingView, Platform 
 } from 'react-native';
 
+// Komponen InputField didefinisikan di luar agar tidak re-render/hilang fokus (Fix 4)
+const InputField = ({ label, value, field, onChangeText, inputRef, nextRef, ...props }) => (
+  <View style={styles.fieldWrapper}>
+    <Text style={styles.label}>{label}</Text>
+    <TextInput
+      ref={inputRef}
+      style={styles.input}
+      value={value}
+      onChangeText={onChangeText}
+      onSubmitEditing={() => nextRef?.current?.focus()}
+      blurOnSubmit={!nextRef}
+      {...props}
+    />
+  </View>
+);
+
 export default function FormLatihan1() {
   const [form, setForm] = useState({
     nama: '', nim: '', prodi: '', 
@@ -18,6 +34,10 @@ export default function FormLatihan1() {
   const refEmail = useRef(null);
   const refNoHp = useRef(null);
   const refAlamat = useRef(null);
+
+  const updateForm = (field, val) => {
+    setForm(prev => ({ ...prev, [field]: val }));
+  };
 
   const resetForm = () => {
     Alert.alert(
@@ -55,21 +75,6 @@ export default function FormLatihan1() {
     );
   };
 
-  const InputField = ({ label, value, field, inputRef, nextRef, ...props }) => (
-    <View style={styles.fieldWrapper}>
-      <Text style={styles.label}>{label}</Text>
-      <TextInput
-        ref={inputRef}
-        style={styles.input}
-        value={value}
-        onChangeText={(val) => setForm(prev => ({ ...prev, [field]: val }))}
-        onSubmitEditing={() => nextRef?.current?.focus()}
-        blurOnSubmit={!nextRef}
-        {...props}
-      />
-    </View>
-  );
-
   return (
     <KeyboardAvoidingView 
       style={{ flex: 1 }} 
@@ -83,6 +88,7 @@ export default function FormLatihan1() {
           label='Nama Lengkap' 
           field='nama' 
           value={form.nama}
+          onChangeText={(val) => updateForm('nama', val)}
           placeholder='Nama Lengkap' 
           returnKeyType='next'
           nextRef={refNim}
@@ -93,6 +99,7 @@ export default function FormLatihan1() {
           label='NIM' 
           field='nim' 
           value={form.nim}
+          onChangeText={(val) => updateForm('nim', val)}
           placeholder='NIM Mahasiswa' 
           keyboardType='numeric'
           returnKeyType='next'
@@ -104,6 +111,7 @@ export default function FormLatihan1() {
           label='Program Studi' 
           field='prodi' 
           value={form.prodi}
+          onChangeText={(val) => updateForm('prodi', val)}
           placeholder='Teknik Informatika / Sistem Informasi' 
           returnKeyType='next'
           nextRef={refSemester}
@@ -114,6 +122,7 @@ export default function FormLatihan1() {
           label='Semester' 
           field='semester' 
           value={form.semester}
+          onChangeText={(val) => updateForm('semester', val)}
           placeholder='Contoh: 4' 
           keyboardType='numeric'
           returnKeyType='next'
@@ -125,6 +134,7 @@ export default function FormLatihan1() {
           label='Email' 
           field='email' 
           value={form.email}
+          onChangeText={(val) => updateForm('email', val)}
           placeholder='nama@mhs.ac.id' 
           keyboardType='email-address'
           autoCapitalize='none'
@@ -137,6 +147,7 @@ export default function FormLatihan1() {
           label='Nomor HP' 
           field='noHp' 
           value={form.noHp}
+          onChangeText={(val) => updateForm('noHp', val)}
           placeholder='08xxxxxxxxxx' 
           keyboardType='phone-pad'
           returnKeyType='next'
@@ -149,7 +160,7 @@ export default function FormLatihan1() {
             ref={refAlamat}
             style={[styles.input, { height: 100, textAlignVertical: 'top' }]}
             value={form.alamat}
-            onChangeText={(val) => setForm(prev => ({ ...prev, alamat: val }))}
+            onChangeText={(val) => updateForm('alamat', val)}
             placeholder='Alamat tempat tinggal'
             multiline
             numberOfLines={4}

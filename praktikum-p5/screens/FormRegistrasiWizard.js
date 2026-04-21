@@ -1,7 +1,7 @@
 import { useState } from 'react';   
-import { View, Text, TextInput, TouchableOpacity, StyleSheet, ScrollView } from 'react-native'; 
+import { View, Text, TextInput, TouchableOpacity, StyleSheet, ScrollView, Alert } from 'react-native'; 
 
-const TOTAL_LANGKAH = 4; // Ditambah jadi 4 untuk halaman ringkasan (Step 3 Praktikum C)
+const TOTAL_LANGKAH = 3; 
 
 export default function FormRegistrasiWizard() {   
   const [langkah, setLangkah] = useState(1);   
