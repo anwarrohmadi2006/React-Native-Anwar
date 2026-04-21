@@ -38,7 +38,7 @@ const stars = (r) => '★'.repeat(Math.round(r)) + '☆'.repeat(5 - Math.round(r
 // ─── SKELETON CARD ────────────────────────────────────────────────────────────
 function SkeletonCard() {
   return (
-    <View style={[styles.card, { width: CARD_SIZE }]}>
+    <View style={[styles.card, { width: CARD_SIZE, marginBottom: 12 }]}>
       <View style={[styles.skl, { height: CARD_SIZE * 0.7, borderRadius: 10 }]} />
       <View style={{ padding: 10 }}>
         <View style={[styles.skl, { height: 14, width: '80%', marginBottom: 6, borderRadius: 6 }]} />
@@ -150,7 +150,7 @@ export default function DaftarProduk({ navigation }) {
         data={dataFiltered}
         keyExtractor={(item) => item.id}
         numColumns={2}
-        columnWrapperStyle={{ gap: 12, marginBottom: 12, paddingHorizontal: 16 }}
+        columnWrapperStyle={{ justifyContent: 'space-between', marginBottom: 12, paddingHorizontal: 16 }}
         contentContainerStyle={{ paddingBottom: 32, paddingTop: 4 }}
         showsVerticalScrollIndicator={false}
         refreshControl={
@@ -212,7 +212,7 @@ const styles = StyleSheet.create({
   ratingNum:     { color: '#6B7FA3' },
   terjualTeks:   { fontSize: 11, color: '#8899BB', marginBottom: 6 },
   hargaTeks:     { fontSize: 14, fontWeight: '800', color: '#2563EB' },
-  gridWrap:      { flexDirection: 'row', flexWrap: 'wrap', gap: 12, paddingHorizontal: 16, opacity: 0.35 },
+  gridWrap:      { flexDirection: 'row', flexWrap: 'wrap', justifyContent: 'space-between', paddingHorizontal: 16, opacity: 0.35 },
   loadingOverlay:{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0,
                    justifyContent: 'center', alignItems: 'center', gap: 12,
                    backgroundColor: 'rgba(240,244,255,0.85)' },
