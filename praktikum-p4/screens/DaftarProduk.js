@@ -187,11 +187,11 @@ export default function DaftarProduk({ navigation }) {
 // ─── STYLES ──────────────────────────────────────────────────────────────────
 const styles = StyleSheet.create({
   layar:         { flex: 1, backgroundColor: '#F0F4FF' },
-  pageHeader:    { paddingHorizontal: 20, paddingTop: Platform.OS === 'android' ? 52 : 56, paddingBottom: 12 },
+  pageHeader:    { paddingHorizontal: 20, paddingTop: Platform.OS === 'android' ? 52 : 56, paddingBottom: 16 },
   pageTitle:     { fontSize: 24, fontWeight: '900', color: '#1E3A5F', letterSpacing: -0.4 },
   pageSub:       { fontSize: 13, color: '#6B7FA3', marginTop: 2 },
   chipListWrap:  { flexDirection: 'row', paddingHorizontal: 16, marginBottom: 16 },
-  chipList:      { paddingHorizontal: 16, paddingBottom: 12 },
+  chipList:      { paddingLeft: 16, paddingRight: 24, paddingBottom: 16 },
   chip:          { paddingHorizontal: 16, paddingVertical: 8, borderRadius: 20, marginRight: 8,
                    backgroundColor: '#FFF', borderWidth: 1.5, borderColor: '#D1D9EE', alignSelf: 'flex-start' },
   chipActive:    { backgroundColor: '#1E3A5F', borderColor: '#1E3A5F' },
