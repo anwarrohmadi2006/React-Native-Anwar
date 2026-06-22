@@ -1,0 +1,13 @@
+[package]
+name = "wawebbot"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+tokio = { version = "1.48", features = ["full"] }
+# Disable default-features to avoid 'simd' which requires Nightly Rust
+whatsapp-rust = { git = "https://github.com/oxidezap/whatsapp-rust", branch = "main", default-features = false, features = ["moka-cache", "sqlite-storage", "tokio-transport", "tokio-runtime", "ureq-client", "tokio-native", "signal"] }
+whatsapp-rust-tokio-transport = { git = "https://github.com/oxidezap/whatsapp-rust", branch = "main" }
+whatsapp-rust-ureq-http-client = { git = "https://github.com/oxidezap/whatsapp-rust", branch = "main" }
+wacore = { git = "https://github.com/oxidezap/whatsapp-rust", branch = "main", default-features = false }
+whatsapp-rust-sqlite-storage = { git = "https://github.com/oxidezap/whatsapp-rust", branch = "main" }

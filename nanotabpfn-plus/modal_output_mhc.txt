@@ -1,0 +1,9 @@
+✓ Initialized. View run at 
+https://modal.com/apps/anwarrohmadi111/main/ap-AtZrOAaPHU2KemjsdfmObx
+✓ Created objects.
+├── 🔨 Created mount 
+│   C:\Users\msi\Documents\React-Native-Anwar\nanotabpfn-plus\modal_train.py
+├── 🔨 Created mount C:\Users\msi\Documents\React-Native-Anwar\nanotabpfn-plus
+└── 🔨 Created function run_training.
+Menyebarkan (Deploying) dan menjalankan training di Modal...
+Starting training on Modal with GPU...

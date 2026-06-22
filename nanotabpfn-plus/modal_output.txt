@@ -1,0 +1,107 @@
+✓ Initialized. View run at 
+https://modal.com/apps/anwarrohmadi111/main/ap-BrY1w3plJ9aaHFyTgwWSXF
+✓ Created objects.
+├── 🔨 Created mount 
+│   C:\Users\msi\Documents\React-Native-Anwar\nanotabpfn-plus\modal_train.py
+├── 🔨 Created mount C:\Users\msi\Documents\React-Native-Anwar\nanotabpfn-plus
+└── 🔨 Created function run_training.
+Menyebarkan (Deploying) dan menjalankan training di Modal...
+Starting training on Modal with GPU...
+[gpu-health] [WARN] GPU-fa0aa1df-b009-acde-a1c8-d488d54a65cb: XID: NVRM: Xid (PCI:0000:ca:00): 43, pid=3854551, name=exe, channel 0x00000008
+
+--- STDOUT ---
+Using device: cuda
+Training nanoTabPFN-plus on cuda for 500 steps...
+Batch size: 8 | LR: 0.004 | Max features: 100
+------------------------------------------------------------
+
+--- STDERR ---
+/pytorch/aten/src/ATen/native/cuda/Loss.cu:245: nll_loss_forward_reduce_cuda_kernel_2d: block: [0,0,0], thread: [57,0,0] Assertion `t >= 0 && t < n_classes` failed.
+/pytorch/aten/src/ATen/native/cuda/Loss.cu:245: nll_loss_forward_reduce_cuda_kernel_2d: block: [0,0,0], thread: [2,0,0] Assertion `t >= 0 && t < n_classes` failed.
+/pytorch/aten/src/ATen/native/cuda/Loss.cu:245: nll_loss_forward_reduce_cuda_kernel_2d: block: [0,0,0], thread: [8,0,0] Assertion `t >= 0 && t < n_classes` failed.
+/pytorch/aten/src/ATen/native/cuda/Loss.cu:245: nll_loss_forward_reduce_cuda_kernel_2d: block: [0,0,0], thread: [17,0,0] Assertion `t >= 0 && t < n_classes` failed.
+/pytorch/aten/src/ATen/native/cuda/Loss.cu:245: nll_loss_forward_reduce_cuda_kernel_2d: block: [0,0,0], thread: [18,0,0] Assertion `t >= 0 && t < n_classes` failed.
+/pytorch/aten/src/ATen/native/cuda/Loss.cu:245: nll_loss_forward_reduce_cuda_kernel_2d: block: [0,0,0], thread: [20,0,0] Assertion `t >= 0 && t < n_classes` failed.
+/pytorch/aten/src/ATen/native/cuda/Loss.cu:245: nll_loss_forward_reduce_cuda_kernel_2d: block: [0,0,0], thread: [22,0,0] Assertion `t >= 0 && t < n_classes` failed.
+/pytorch/aten/src/ATen/native/cuda/Loss.cu:245: nll_loss_forward_reduce_cuda_kernel_2d: block: [0,0,0], thread: [24,0,0] Assertion `t >= 0 && t < n_classes` failed.
+Traceback (most recent call last):
+  File "/root/nanotabpfn/train.py", line 312, in <module>
+    model, history = train(
+  File "/root/nanotabpfn/train.py", line 249, in train
+    loss.backward()
+  File "/usr/local/lib/python3.10/site-packages/torch/_tensor.py", line 631, in backward
+    torch.autograd.backward(
+  File "/usr/local/lib/python3.10/site-packages/torch/autograd/__init__.py", line 379, in backward
+    _engine_run_backward(
+  File "/usr/local/lib/python3.10/site-packages/torch/autograd/graph.py", line 882, in _engine_run_backward
+    return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+torch.AcceleratorError: CUDA error: device-side assert triggered
+Search for `cudaErrorAssert' in https://docs.nvidia.com/cuda/cuda-runtime-api/group__CUDART__TYPES.html for more information.
+CUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.
+For debugging consider passing CUDA_LAUNCH_BLOCKING=1
+Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
+
+
+Traceback (most recent call last):
+  File "/pkg/modal/_runtime/container_io_manager.py", line 947, in handle_input_exception
+    yield
+  File "/pkg/modal/_container_entrypoint.py", line 172, in run_input_sync
+    values = io_context.call_function_sync()
+  File "/pkg/modal/_runtime/container_io_manager.py", line 225, in call_function_sync
+    expected_value_or_values = self.finalized_function.callable(*args, **kwargs)
+  File "/root/modal_train.py", line 54, in run_training
+    raise Exception("Training failed! Check the logs above.")
+Exception: Training failed! Check the logs above.
+
+Stopping app - uncaught exception raised locally: Exception('Training failed! Check the logs above.').
+┌───────────────────── Traceback (most recent call last) ─────────────────────┐
+│ C:\Users\msi\Documents\React-Native-Anwar\nanotabpfn-plus\modal_train.py:62 │
+│ in main                                                                     │
+│                                                                             │
+│   61 │   # Call the remote function                                         │
+│ > 62 │   model_bytes = run_training.remote()                                │
+│   63                                                                        │
+│                                                                             │
+│ C:\Users\msi\AppData\Local\Programs\Python\Python311\Lib\site-packages\moda │
+│ l\_object.py:46 in wrapped                                                  │
+│                                                                             │
+│    45 │   │   await self.hydrate()                                          │
+│ >  46 │   │   return await method(self, *args, **kwargs)                    │
+│    47                                                                       │
+│                                                                             │
+│ C:\Users\msi\AppData\Local\Programs\Python\Python311\Lib\site-packages\moda │
+│ l\_functions.py:1699 in remote                                              │
+│                                                                             │
+│   1698 │   │                                                                │
+│ > 1699 │   │   return await self._call_function(args, kwargs)               │
+│   1700                                                                      │
+│                                                                             │
+│ C:\Users\msi\AppData\Local\Programs\Python\Python311\Lib\site-packages\moda │
+│ l\_functions.py:1643 in _call_function                                      │
+│                                                                             │
+│   1642 │   │                                                                │
+│ > 1643 │   │   return await invocation.run_function()                       │
+│   1644                                                                      │
+│                                                                             │
+│ C:\Users\msi\AppData\Local\Programs\Python\Python311\Lib\site-packages\moda │
+│ l\_functions.py:494 in run_function                                         │
+│                                                                             │
+│    493 │   │   │   # No more retries left.                                  │
+│ >  494 │   │   │   return await _process_result(                            │
+│    495 │   │   │   │   await_response.output.result, await_response.output. │
+│                                                                             │
+│ C:\Users\msi\AppData\Local\Programs\Python\Python311\Lib\site-packages\moda │
+│ l\_utils\function_utils.py:527 in _process_result                           │
+│                                                                             │
+│   526 │   │   │                                                             │
+│ > 527 │   │   │   raise exc_with_hints(exc)                                 │
+│   528                                                                       │
+│                                                                             │
+│     ...Remote call to Modal Function (ta-01KRZMKGT85VG8DQ52K9BKW0QE)...     │
+│                                                                             │
+│ /root/modal_train.py:54 in run_training                                     │
+│                                                                             │
+│ > 54 raise Exception("Training failed! Check the logs above.")              │
+│                                                                             │
+└─────────────────────────────────────────────────────────────────────────────┘
+Exception: Training failed! Check the logs above.

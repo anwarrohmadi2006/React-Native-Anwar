@@ -1,0 +1,12 @@
+app = "wawebbot-anwar"
+primary_region = "sin" # Singapore is usually good for SEA, adjust if needed
+
+[build]
+  dockerfile = "Dockerfile"
+
+[mounts]
+  source = "whatsapp_data"
+  destination = "/data"
+
+[env]
+  # Environment variables if needed
