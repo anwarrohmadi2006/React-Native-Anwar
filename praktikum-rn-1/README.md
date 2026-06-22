@@ -1,4 +1,10 @@
-# Praktikum 1: Pengenalan React Native
+﻿<div align="center">
+  <h1>📱 Praktikum Pemrograman Mobile - Pertemuan 1</h1>
+  <p><strong>Topik: Pengenalan React Native & Komponen Dasar</strong></p>
+</div>
+
+---
+## 📖 Deskripsi Modul
 
 Ini adalah proyek untuk pertemuan pertama mata kuliah Pemrograman Mobile menggunakan React Native dan Expo.
 
@@ -40,3 +46,4 @@ Praktikum ini dibagi menjadi 3 bagian utama:
    npx expo start
    ```
 4. Tekan `a` untuk membuka di Emulator Android, atau scan QR code menggunakan aplikasi Expo Go di HP Anda.
+
